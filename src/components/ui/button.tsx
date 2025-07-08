@@ -19,6 +19,14 @@ const buttonVariants = cva(
                     "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
                 ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
                 link: "text-primary underline-offset-4 hover:underline",
+                chocolate:
+                    "bg-[var(--chocolate)] text-[var(--chocolate-foreground)] shadow-xs hover:bg-[var(--chocolate)]/90",
+                chocolateOutline:
+                    "border border-[var(--chocolate-outline)] bg-background text-[var(--chocolate-outline)] shadow-xs hover:bg-[var(--chocolate)]/10 hover:text-[var(--chocolate-outline)]",
+                goldenrod:
+                    "bg-[var(--goldenrod)] text-[var(--goldenrod-foreground)] shadow-xs hover:bg-[var(--goldenrod)]/90",
+                goldenrodOutline:
+                    "border border-[var(--goldenrod-outline)] bg-background text-[var(--goldenrod-outline)] shadow-xs hover:bg-[var(--goldenrod)]/10 hover:text-[var(--goldenrod-outline)]",
             },
             size: {
                 default: "h-9 px-4 py-2 has-[>svg]:px-3",

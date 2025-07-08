@@ -30,31 +30,31 @@ export const Dots: FC<DotsProps> = ({
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <g style={{ mixBlendMode: "color-dodge" as const }}>
-                    <circle cx="5" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="5" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="5" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="22" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="22" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="22" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="39" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="39" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="39" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="56" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="56" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="56" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="73" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="73" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="73" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="90" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="90" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="90" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="107" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="107" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="107" cy="49" r="5" fill="#D1CABA" />
-                    <circle cx="124" cy="5" r="5" fill="#D1CABA" />
-                    <circle cx="124" cy="27" r="5" fill="#D1CABA" />
-                    <circle cx="124" cy="49" r="5" fill="#D1CABA" />
+                <g>
+                    <circle cx="5" cy="5" r="5" fill="#645743" />
+                    <circle cx="5" cy="27" r="5" fill="#645743" />
+                    <circle cx="5" cy="49" r="5" fill="#645743" />
+                    <circle cx="22" cy="5" r="5" fill="#645743" />
+                    <circle cx="22" cy="27" r="5" fill="#645743" />
+                    <circle cx="22" cy="49" r="5" fill="#645743" />
+                    <circle cx="39" cy="5" r="5" fill="#645743" />
+                    <circle cx="39" cy="27" r="5" fill="#645743" />
+                    <circle cx="39" cy="49" r="5" fill="#645743" />
+                    <circle cx="56" cy="5" r="5" fill="#645743" />
+                    <circle cx="56" cy="27" r="5" fill="#645743" />
+                    <circle cx="56" cy="49" r="5" fill="#645743" />
+                    <circle cx="73" cy="5" r="5" fill="#645743" />
+                    <circle cx="73" cy="27" r="5" fill="#645743" />
+                    <circle cx="73" cy="49" r="5" fill="#645743" />
+                    <circle cx="90" cy="5" r="5" fill="#645743" />
+                    <circle cx="90" cy="27" r="5" fill="#645743" />
+                    <circle cx="90" cy="49" r="5" fill="#645743" />
+                    <circle cx="107" cy="5" r="5" fill="#645743" />
+                    <circle cx="107" cy="27" r="5" fill="#645743" />
+                    <circle cx="107" cy="49" r="5" fill="#645743" />
+                    <circle cx="124" cy="5" r="5" fill="#645743" />
+                    <circle cx="124" cy="27" r="5" fill="#645743" />
+                    <circle cx="124" cy="49" r="5" fill="#645743" />
                 </g>
             </svg>
         </motion.div>

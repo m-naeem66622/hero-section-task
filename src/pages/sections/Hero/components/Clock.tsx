@@ -1,4 +1,5 @@
 import { useEffect, useState, type FC } from "react";
+import { motion } from "framer-motion";
 
 interface ClockProps {
     className?: string;
@@ -20,7 +21,12 @@ export const Clock: FC<ClockProps> = ({ className }) => {
     const formatted = `${hours} : ${minutes} : ${seconds}`;
 
     return (
-        <div className={className}>
+        <motion.div
+            className={className}
+            initial={{ clipPath: "inset(0 100% 0 0)" }}
+            animate={{ clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
             <svg
                 width="100%"
                 height="100%"
@@ -74,6 +80,6 @@ export const Clock: FC<ClockProps> = ({ className }) => {
                     </linearGradient>
                 </defs>
             </svg>
-        </div>
+        </motion.div>
     );
 };

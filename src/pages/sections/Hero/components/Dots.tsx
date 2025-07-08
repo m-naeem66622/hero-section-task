@@ -1,12 +1,19 @@
 import { type FC } from "react";
+import { motion } from "framer-motion";
 
 interface DotsProps {
     className?: string;
+    initialRotation?: number;
 }
 
-export const Dots: FC<DotsProps> = ({ className }) => {
+export const Dots: FC<DotsProps> = ({ className, initialRotation = 0 }) => {
     return (
-        <div className={className}>
+        <motion.div
+            className={className}
+            initial={{ rotate: initialRotation, opacity: 0 }}
+            animate={{ rotate: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
             <svg
                 width="100%"
                 height="100%"
@@ -41,6 +48,6 @@ export const Dots: FC<DotsProps> = ({ className }) => {
                     <circle cx="124" cy="49" r="5" fill="#D1CABA" />
                 </g>
             </svg>
-        </div>
+        </motion.div>
     );
 };

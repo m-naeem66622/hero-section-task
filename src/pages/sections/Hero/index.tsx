@@ -22,7 +22,7 @@ export const Hero: FC = () => {
     return (
         <div className="bg-[#121212] min-h-screen max-h-[768px]">
             <div className="container mx-auto flex items-center justify-center min-h-screen relative overflow-hidden">
-                <div className="flex flex-col items-center justify-center text-center max-w-[705px]">
+                <div className="flex flex-col items-center justify-center text-center lg:max-w-[723px] md:max-w-[90vw] sm:max-w-[95vw] w-full px-2">
                     {/* For "Be a part of" (reveal from top) */}
                     <div style={{ overflow: "hidden" }}>
                         <motion.div
@@ -30,7 +30,7 @@ export const Hero: FC = () => {
                             animate={isReady ? { y: 0 } : {}}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                         >
-                            <h2 className="text-[#F3F3F3] uppercase text-[40px]">
+                            <h2 className="text-[#F3F3F3] uppercase lg:text-[40px] md:text-2xl sm:text-xl text-lg leading-tight">
                                 Be A Part Of
                             </h2>
                         </motion.div>
@@ -47,7 +47,7 @@ export const Hero: FC = () => {
                                 delay: 0.15,
                             }}
                         >
-                            <h1 className="text-[#D1CABA] uppercase text-[92px]">
+                            <h1 className="text-[#D1CABA] uppercase font-bold lg:text-[92px] md:text-5xl sm:text-3xl text-2xl leading-none">
                                 The Movement
                             </h1>
                         </motion.div>
@@ -64,7 +64,7 @@ export const Hero: FC = () => {
                                 delay: 0.3,
                             }}
                         >
-                            <p className="text-[#9E9E9E] text-justify text-lg">
+                            <p className="text-[#9E9E9E] text-justify lg:text-lg md:text-base sm:text-sm text-xs mt-2">
                                 Project Black Is A Movement Dedicated To
                                 Elevating Black Excellence And Minority
                                 Success—Reshaping Narratives, Fostering

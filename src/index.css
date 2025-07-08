@@ -134,3 +134,9 @@
         font-family: var(--font-manrope);
     }
 }
+
+.paragraph {
+    text-align: justify;
+    text-align-last: center;
+    text-justify: inter-word;
+}

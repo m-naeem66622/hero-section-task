@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 
 interface ClockProps {
     className?: string;
+    animate?: boolean;
 }
 
 const pad = (num: number) => num.toString().padStart(2, "0");
 
-export const Clock: FC<ClockProps> = ({ className }) => {
+export const Clock: FC<ClockProps> = ({ className, animate = true }) => {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
@@ -24,7 +25,11 @@ export const Clock: FC<ClockProps> = ({ className }) => {
         <motion.div
             className={className}
             initial={{ clipPath: "inset(0 100% 0 0)" }}
-            animate={{ clipPath: "inset(0 0% 0 0)" }}
+            animate={
+                animate
+                    ? { clipPath: "inset(0 0% 0 0)" }
+                    : { clipPath: "inset(0 100% 0 0)" }
+            }
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
             <svg

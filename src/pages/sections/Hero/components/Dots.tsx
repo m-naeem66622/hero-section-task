@@ -4,15 +4,24 @@ import { motion } from "framer-motion";
 interface DotsProps {
     className?: string;
     initialRotation?: number;
+    animate?: boolean;
 }
 
-export const Dots: FC<DotsProps> = ({ className, initialRotation = 0 }) => {
+export const Dots: FC<DotsProps> = ({
+    className,
+    initialRotation = 0,
+    animate = true,
+}) => {
     return (
         <motion.div
             className={className}
             initial={{ rotate: initialRotation, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            animate={
+                animate
+                    ? { rotate: 0, opacity: 1 }
+                    : { rotate: initialRotation, opacity: 0 }
+            }
+            transition={{ duration: 1, ease: "easeOut" }}
         >
             <svg
                 width="100%"

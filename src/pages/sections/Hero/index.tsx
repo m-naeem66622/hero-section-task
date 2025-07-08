@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { type FC, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Clock, Dots } from "./components";
 import logo from "@/assets/images/logo.png";
@@ -7,21 +7,28 @@ import hero2 from "@/assets/images/hero-2.png";
 import { motion } from "framer-motion";
 
 export const Hero: FC = () => {
+    const [isReady, setIsReady] = useState(false);
+    const [imagesLoaded, setImagesLoaded] = useState(0);
+    const totalImages = 3; // logo, hero1, hero2
+
+    const handleImageLoad = () => setImagesLoaded((count) => count + 1);
+
+    useEffect(() => {
+        if (imagesLoaded === totalImages) {
+            setIsReady(true);
+        }
+    }, [imagesLoaded]);
+
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="bg-[#121212] min-h-screen max-h-[768px]"
-        >
+        <div className="bg-[#121212] min-h-screen max-h-[768px]">
             <div className="container mx-auto flex items-center justify-center min-h-screen relative overflow-hidden">
                 <div className="flex flex-col items-center justify-center text-center max-w-[705px]">
                     {/* For "Be a part of" (reveal from top) */}
                     <div style={{ overflow: "hidden" }}>
                         <motion.div
                             initial={{ y: "-100%" }}
-                            animate={{ y: 0 }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            animate={isReady ? { y: 0 } : {}}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
                         >
                             <h2 className="text-[#F3F3F3] uppercase text-[40px]">
                                 Be A Part Of
@@ -33,10 +40,11 @@ export const Hero: FC = () => {
                     <div style={{ overflow: "hidden" }}>
                         <motion.div
                             initial={{ y: "100%" }}
-                            animate={{ y: 0 }}
+                            animate={isReady ? { y: 0 } : {}}
                             transition={{
-                                duration: 0.5,
+                                duration: 0.8,
                                 ease: "easeOut",
+                                delay: 0.15,
                             }}
                         >
                             <h1 className="text-[#D1CABA] uppercase text-[92px]">
@@ -49,10 +57,11 @@ export const Hero: FC = () => {
                     <div style={{ overflow: "hidden" }}>
                         <motion.div
                             initial={{ y: "100%" }}
-                            animate={{ y: 0 }}
+                            animate={isReady ? { y: 0 } : {}}
                             transition={{
-                                duration: 0.5,
+                                duration: 0.8,
                                 ease: "easeOut",
+                                delay: 0.3,
                             }}
                         >
                             <p className="text-[#9E9E9E] text-justify text-lg">
@@ -73,40 +82,47 @@ export const Hero: FC = () => {
                         </Button>
                     </div>
                 </div>
-                <Dots className="w-[60px] absolute -top-4 left-0 rotate-90" />
+                {/* Dots animations */}
                 <Dots
-                    className="w-[75px] absolute top-5 right-0"
-                    initialRotation={90}
+                    className="w-[60px] absolute -top-4 left-0 rotate-90"
+                    animate={isReady}
                 />
-
-                <Clock className="w-[200px] absolute bottom-10 left-15" />
-
-                <motion.img
+                <Dots
+                    className="w-[60px] absolute top-5 right-0"
+                    initialRotation={90}
+                    animate={isReady}
+                />
+                {/* Clock animation */}
+                <Clock
+                    className="w-[200px] absolute bottom-10 left-15"
+                    animate={isReady}
+                />
+                {/* Images with loading tracking */}
+                <img
                     src={logo}
                     alt=""
-                    initial={{ opacity: 0, y: -50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
                     className="w-[100px] absolute top-0 left-[50%] -translate-x-1/2"
+                    onLoad={handleImageLoad}
                 />
-
                 <motion.img
                     src={hero1}
                     initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    animate={isReady ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 1, ease: "easeOut" }}
                     alt="Hero 1"
                     className="absolute -bottom-25 left-0 w-[500px] mix-blend-lighten"
+                    onLoad={handleImageLoad}
                 />
                 <motion.img
                     src={hero2}
                     initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    animate={isReady ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 1, ease: "easeOut" }}
                     alt="Hero 2"
                     className="absolute bottom-0 right-0 w-[500px] mix-blend-lighten"
+                    onLoad={handleImageLoad}
                 />
             </div>
-        </motion.div>
+        </div>
     );
 };

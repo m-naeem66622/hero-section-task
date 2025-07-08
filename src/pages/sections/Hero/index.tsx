@@ -1,5 +1,5 @@
 import { type FC, useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { Clock, Dots } from "./components";
 import logo from "@/assets/images/logo.png";
 import hero1 from "@/assets/images/hero-1.png";

@@ -20,8 +20,26 @@ export const Hero: FC = () => {
     }, [imagesLoaded]);
 
     return (
-        <div className="bg-[#121212] min-h-screen max-h-[768px]">
-            <div className="max-w-[1920px] mx-auto flex items-center justify-center min-h-screen relative overflow-hidden">
+        <div className="min-h-screen max-h-[768px] max-w-[1920px] mx-auto relative overflow-hidden">
+            <img
+                src={logo}
+                alt=""
+                className="w-[90px] lg:w-[120px] mx-auto"
+                onLoad={handleImageLoad}
+            />
+
+            {/* Dots animations */}
+            <Dots
+                className="w-[80px] absolute -top-4 left-0 rotate-90"
+                animate={isReady}
+            />
+            <Dots
+                className="w-[100px] absolute top-5 right-0"
+                initialRotation={90}
+                animate={isReady}
+            />
+
+            <div className="flex flex-col gap-8 items-center justify-center min-h-screen">
                 <div className="flex flex-col items-center justify-center text-center lg:max-w-[723px] md:max-w-[90vw] sm:max-w-[95vw] w-full px-2">
                     {/* For "Be a part of" (reveal from top) */}
                     <div style={{ overflow: "hidden" }}>
@@ -76,47 +94,33 @@ export const Hero: FC = () => {
                     <div className="flex flex-wrap gap-4 mt-8 justify-center">
                         <Button
                             variant="chocolateOutline"
-                            className="text-xl py-5"
+                            className="xl:text-lg xl:w-[200px] xl:h-[50px]"
                         >
                             Join the Wishlist
                         </Button>
                         <Button
                             variant="chocolate"
-                            className="text-[#D7D7D7] text-xl py-[23px]"
+                            className="text-[#D7D7D7] xl:text-lg xl:w-[200px] xl:h-[50px]"
                         >
                             Apply Now
                         </Button>
                     </div>
                 </div>
-                {/* Dots animations */}
-                <Dots
-                    className="w-[80px] absolute -top-4 left-0 rotate-90"
-                    animate={isReady}
-                />
-                <Dots
-                    className="w-[100px] absolute top-5 right-0"
-                    initialRotation={90}
-                    animate={isReady}
-                />
+
                 {/* Clock animation */}
                 <Clock
-                    className="w-[280px] absolute bottom-10 left-15"
+                    className="w-[150px] lg:w-[200px] xl:w-[280px] block lg:absolute bottom-10 left-15"
                     animate={isReady}
                 />
+
                 {/* Images with loading tracking */}
-                <img
-                    src={logo}
-                    alt=""
-                    className="w-[120px] absolute top-5 left-[50%] -translate-x-1/2"
-                    onLoad={handleImageLoad}
-                />
                 <motion.img
                     src={hero1}
                     initial={{ opacity: 0, x: -50 }}
                     animate={isReady ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 1, ease: "easeOut" }}
                     alt="Hero 1"
-                    className="absolute -bottom-20 left-0 mix-blend-lighten"
+                    className="absolute -bottom-20 left-0 mix-blend-lighten hidden lg:block w-[25%] xl:w-[32%]"
                     onLoad={handleImageLoad}
                 />
                 <motion.img
@@ -125,7 +129,7 @@ export const Hero: FC = () => {
                     animate={isReady ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 1, ease: "easeOut" }}
                     alt="Hero 2"
-                    className="absolute -bottom-20 right-0 mix-blend-lighten"
+                    className="absolute -bottom-20 right-0 mix-blend-lighten hidden lg:block w-[30%] xl:w-[39%]"
                     onLoad={handleImageLoad}
                 />
             </div>
